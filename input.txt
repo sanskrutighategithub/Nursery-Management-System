@@ -1,0 +1,15 @@
+create database agri;
+
+\c agri
+
+ create table customer(cid int primary key,cname varchar(20),ccontact varchar(20));
+
+create table supplier(sid int primary key,sname varchar(20),sadd varchar(20),sconatct varchar(20));
+
+ insert into customer values(1001,'RAM','9878542242');
+
+create table pdetails(pid int primary key,pname varchar(20),fer varchar(20),quantity int,rate int,pdate date,amt float,sname varchar(20),sid int references supplier);
+
+ create table plant(plantid int primary key,pname varchar(20),price float,pid int references pdetails PRIMARY KEY(plantid,pid);
+
+create table sdetails(salesid int primary key,pname varchar(20),fer varchar(20),quantity int,rate float,sdate date,tamt float,cname varchar(20),ccontact varchar(20));
